@@ -6,7 +6,7 @@ import { Factory } from '../store/app/factory.model';
 @Injectable()
 export class ApiService {
   // This should come from the environments file eventually
-  private baseUrl = 'http://localhost:4200/';
+  private baseUrl = 'http://52.3.10.162:4200/';
 
   constructor(
     protected http: HttpClient
