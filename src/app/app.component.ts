@@ -3,6 +3,7 @@ import { AppStateActions } from './store/app/app-state.actions';
 import { AppStateSelectors } from './store/app/app-state.selectors';
 import { Factory } from './store/app/factory.model';
 import * as io from 'socket.io-client';
+import { ApiService } from './service/api.service';
 
 @Component({
   selector: 'factory',
@@ -11,16 +12,17 @@ import * as io from 'socket.io-client';
 })
 export class AppComponent  {
   factories: Factory[];
-  private url = 'http://localhost:4200';
+
   private socket: any;
   private selectedItem: Factory;
 
   constructor(
     private appActions: AppStateActions,
-    private appStateSelectors: AppStateSelectors
+    private appStateSelectors: AppStateSelectors,
+    private apiService: ApiService
   ) {
     // Socket.io listeners for new factories and updates
-    this.socket = io.connect(this.url);
+    this.socket = io.connect(this.apiService.baseUrl);
     this.socket.on('list', (data: any) => {
       this.appActions.setFactories(data);
     });
