@@ -1,0 +1,10 @@
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-body">
+    <p *ngFor="let item of errorList; let i = index">
+      {{ item }}
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

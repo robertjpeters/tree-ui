@@ -1,0 +1,26 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-row align-items-center">
+      <div class="col-2">
+        <label>Name</label><input type="text" class="form-control" placeholder="Name" [(ngModel)]="factory.name" name="name">
+      </div>
+      <div class="col-2">
+        <label>Lower</label><input type="text" class="form-control" placeholder="Lower" [(ngModel)]="factory.lower" name="lower">
+      </div>
+      <div class="col-2">
+        <label>Upper</label><input type="text" class="form-control" placeholder="Upper" [(ngModel)]="factory.upper" name="upper">
+      </div>
+      <div class="col-6">
+        <label>Count</label>
+        <div class="row">
+          <div class="col-5">
+            <input type="text" class="form-control" placeholder="Children" [(ngModel)]="factory.childCount" name="childCount">
+          </div>
+          <div class="col-7">
+            <button type="submit" class="btn btn-primary"><fa name="check"></fa> Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

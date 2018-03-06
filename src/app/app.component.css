@@ -1,0 +1,20 @@
+ul#factory-container ul.nested-list-group {
+  padding-top: 10px;
+}
+
+ul#factory-container div.root {
+  cursor: pointer;
+}
+
+ul#factory-container li.active {
+  background-color: darkgrey;
+  border-color: darkgrey;
+}
+
+ul#factory-container li.active .list-group-item {
+  color: #000;
+}
+
+ul#factory-container li ul li.list-group-item {
+  font-size: 70%;
+}
