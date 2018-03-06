@@ -10,7 +10,7 @@ import * as io from 'socket.io-client';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  private factories: Factory[];
+  factories: Factory[];
   private url = 'http://localhost:4200';
   private socket: any;
   private selectedItem: Factory;
