@@ -5,37 +5,40 @@ import { Factory } from '../store/app/factory.model';
 
 @Injectable()
 export class ApiService {
+  // This should come from the environments file eventually
+  private baseUrl = 'http://localhost:4200/';
+
   constructor(
     protected http: HttpClient
   ) {}
 
   getFactories() {
     return this.http
-      .get<Factory[]>('http://localhost:4200/factories')
+      .get<Factory[]>(this.baseUrl + 'factories')
       .toPromise();
   }
 
   createFactory(factory: Factory) {
     return this.http
-      .post('http://localhost:4200/factories', factory)
+      .post(this.baseUrl + 'factories', factory)
       .toPromise();
   }
 
   updateFactory(factory: Factory) {
     return this.http
-      .patch('http://localhost:4200/factories/' + factory._id, factory)
+      .patch(this.baseUrl + 'factories/' + factory._id, factory)
       .toPromise();
   }
 
   deleteFactory(factory: Factory) {
     return this.http
-      .delete('http://localhost:4200/factories/' + factory._id)
+      .delete(this.baseUrl + 'factories/' + factory._id)
       .toPromise();
   }
 
   generateChildren(factory: Factory) {
     return this.http
-      .get('http://localhost:4200/factories/' + factory._id + '/generate')
+      .get(this.baseUrl + 'factories/' + factory._id + '/generate')
       .toPromise();
   }
 }
